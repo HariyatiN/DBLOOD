@@ -21,7 +21,7 @@
                                  </th>
                                  <th>
                                      <center>
-                                        No. 
+                                        No.
                                      </center>
                                  </th>
                                  <th>
@@ -30,7 +30,7 @@
                                  <th>
                                      <center>Darah Id</center>
                                  </th>
-                    
+
                              </tr>
                          </thead>
                       <tbody>
@@ -39,7 +39,7 @@
                                 <td>
                                     <center>
                                         <div class="btn-group">
-                                            <a href="#" class="btn btn-warning">
+                                            <a href="##" class="btn btn-warning">
                                                 <i class="far fa-eye"></i>
                                             </a>
                                             <a href="{{ url('admin/pendonor/edit', $x->id) }}" class="btn btn-primary">
@@ -54,19 +54,19 @@
                                 <td>
                                     <center>{{ $loop->iteration }}</center>
                                 </td>
-                               
+
                                 <td>
                                     <center>{{ $x->pendonor_id }}</center>
                                 </td>
                                 <td>
                                     <center>{{ $x->darah_id }}</center>
                                 </td>
-                               
+
                             </tr>
                      @endforeach
-                 
+
                       </tbody>
-                       
+
                      </table>
                  </div>
              </div>
