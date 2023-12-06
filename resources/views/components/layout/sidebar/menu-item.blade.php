@@ -1,0 +1,1 @@
+<a href="{{ url($url ) }}" class="nav-item nav-link"><i class="{{ $icon }}"></i>{{ $label }}</a>
