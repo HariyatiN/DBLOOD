@@ -65,11 +65,11 @@
 
             <!-- Footer Start -->
 
-          
-        </div>
+            <x-layout.footer />
+          </div>
         <!-- Content End -->
              
-         <x-layout.footer />
+      
 
 
 
