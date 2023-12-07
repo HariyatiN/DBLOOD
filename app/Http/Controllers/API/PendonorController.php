@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Pendonor;
 class PendonorController extends Controller
 {
-   public function getPendonor(){
+    public function getPendonor()
+    {
         $pendonor = Pendonor::get();
 
         return response()->json($pendonor);

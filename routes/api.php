@@ -8,12 +8,14 @@ use App\Http\Controllers\API\InfoController;
 use App\Http\Controllers\API\PendonorController;
 use App\Http\Controllers\API\DonorController;
 
-Route::controller(Homecontroller::class)->group(function () {
-    Route::get('/darah', 'getData');
+Route::controller(DarahController::class)->group(function () {
+    Route::get('/darah', 'getDarah');
+    Route::get('/darah/{id}', 'getDarahById');
 
 });
 Route::controller(InfoController::class)->group(function () {
-    Route::get('/info', 'getData');
+    Route::get('/info', ' getInfo');
+    Route::get('/info/{id}', 'getInfoById');
 });
 
 Route::controller(PendonorController::class)->group(function () {
