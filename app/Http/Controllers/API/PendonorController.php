@@ -10,7 +10,7 @@ use App\Models\Pendonor;
 
 class PendonorController extends Controller
 {
-    public function getPendonor()
+    public function getData()
     {
         $pendonor = Pendonor::get();
         return response()->json($pendonor);
