@@ -15,4 +15,17 @@ class DarahController extends Controller
         return response()->json($darah);
 
     }
+
+    public function getDarahById($id){
+        $darah= Darah::find($id);
+
+        if($darah){
+            return response()->json($darah);
+
+
+        }else{
+            return response()->json(['message' =>'darah tidak ditemukan', 'status'=>404]);
+
+        }
+    }
 }
