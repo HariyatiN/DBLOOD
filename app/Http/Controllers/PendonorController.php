@@ -144,7 +144,7 @@ class PendonorController extends Controller
         $pendonor->kode_p = $request->kode_p;
 
         $pendonor->update();
-        
+            
         return redirect('admin/pendonor')->with('success', 'Data berhasil diupdate');
       }
     }

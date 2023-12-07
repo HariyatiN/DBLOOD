@@ -18,7 +18,7 @@
           <x-layout.sidebar.menu-item url="admin/dashboard" label="Dashboard" icon="fa fa-tachometer-alt me-2"  />
           <x-layout.sidebar.menu-item url="admin/pendonor" label="Pendonor" icon="fa fa-users"  />
           <x-layout.sidebar.menu-item url="admin/darah" label="Darah" icon="fa fa-tint"  />
-          <x-layout.sidebar.menu-item url="admin/pendonor" label="Info" icon="fa fa-info-circle"  />
+          <x-layout.sidebar.menu-item url="admin/info" label="Info" icon="fa fa-info-circle"  />
          <x-layout.sidebar.menu-item url="admin/donor" label="Donor" icon="fas fa-hand-holding-heart"  />
 
      

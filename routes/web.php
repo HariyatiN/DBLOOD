@@ -54,6 +54,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/info', 'aksitambah');
         Route::get('/info/edit/{info}', 'edit');
         Route::post('/info/edit/{info}', 'aksiEdit');
+        Route::delete('/info/delete/{info}', 'delete');
     });
 
 
