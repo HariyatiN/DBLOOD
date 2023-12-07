@@ -9,15 +9,15 @@ class Pendonor extends Model
 {
     use HasFactory;
 
-    protected $table = "pendonor";
+    protected $table ="pendonor";
 
 
 
     public function donor(){
         return  $this->hasMany(Donor::class, 'pendonor_id', 'id');
     }
-    
-    
+
+
     protected $fillable = [
         'nama',
         'jk',
@@ -27,22 +27,22 @@ class Pendonor extends Model
         'kode_p',
         'password',
         'foto',
-        
-        
-       
+
+
+
     ];
 
-    static $inputan = [
-        'nama' => 'require',
-        'jk' => 'require',
-        'tlp' => 'require',
-        'alamat' => 'require',
-        'gol_darah' => 'require',
-        'kode_p' => 'require',
-        'password' => 'require',
-        'foto' => 'require',
-        'level' => 'require',
-    ];
+    // static $inputan = [
+    //     'nama' => 'require',
+    //     'jk' => 'require',
+    //     'tlp' => 'require',
+    //     'alamat' => 'require',
+    //     'gol_darah' => 'require',
+    //     'kode_p' => 'require',
+    //     'password' => 'require',
+    //     'foto' => 'require',
+    //     'level' => 'require',
+    // ];
 
     static $pesan = [
         'nama' => 'Data tidak boleh kosong !',
