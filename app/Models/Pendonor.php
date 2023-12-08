@@ -32,17 +32,17 @@ class Pendonor extends Model
 
     ];
 
-    // static $inputan = [
-    //     'nama' => 'require',
-    //     'jk' => 'require',
-    //     'tlp' => 'require',
-    //     'alamat' => 'require',
-    //     'gol_darah' => 'require',
-    //     'kode_p' => 'require',
-    //     'password' => 'require',
-    //     'foto' => 'require',
-    //     'level' => 'require',
-    // ];
+    static $inputan = [
+        'nama' => 'require',
+        'jk' => 'require',
+        'tlp' => 'require',
+        'alamat' => 'require',
+        'gol_darah' => 'require',
+        'kode_p' => 'require',
+        'password' => 'require',
+        'foto' => 'require',
+ 
+    ];
 
     static $pesan = [
         'nama' => 'Data tidak boleh kosong !',

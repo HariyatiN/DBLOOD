@@ -31,7 +31,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/darah/detail/{darah}', 'detail');
         Route::post('/darah/tambah', 'aksitambah');
         Route::get('/darah/tambah', 'tambah');
-        // Route::get('/darah/edit/{darah}', 'edit');
+        Route::get('/darah/edit/{darah}', 'edit');
         // Route::post('/darah/edit/{darah}', 'aksiedit');
        
     });
