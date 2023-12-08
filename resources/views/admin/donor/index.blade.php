@@ -11,19 +11,19 @@
              </div>
              <div class="card-body">
                  <div class="table-responsive">
-                     <table class="table">
+                    <table class="table table-bordered table-striped">
                          <thead>
                              <tr>
                                  <th>
                                      <center>
-                                        Action
-                                     </center>
-                                 </th>
-                                 <th>
-                                     <center>
-                                        No.
-                                     </center>
-                                 </th>
+                                         No.
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                           Action
+                                        </center>
+                                    </th>
                                  <th>
                                      <center>Pendonor Id</center>
                                  </th>
@@ -36,6 +36,10 @@
                       <tbody>
                         @foreach ($list as $x)
                             <tr>
+                               
+                                <td>
+                                    <center>{{ $loop->iteration }}</center>
+                                </td>
                                 <td>
                                     <center>
                                         <div class="btn-group">
@@ -50,9 +54,6 @@
                                             </a>
                                         </div>
                                     </center>
-                                </td>
-                                <td>
-                                    <center>{{ $loop->iteration }}</center>
                                 </td>
 
                                 <td>

@@ -78,10 +78,7 @@ function aksiEdit(Info $info , Request $request){
 
     }
 
-    function destroy(Info $info){
-      $info->delete();
-}
-
+  
 
 }
 
