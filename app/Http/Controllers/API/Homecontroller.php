@@ -10,7 +10,20 @@ class Homecontroller extends Controller
 {
     function getData(Request $request){
         $darah = Darah::get();
-        return response()->json($darah);
+        if($darah){
+            return response()->json([
+                'status' => 200,
+                'message' => 'Data berhasil diload !',
+                'data' => $darah,
+            ]);
+        }else{
+            return response()->json([
+                'status' => 404,
+                'message' => 'Data darah tidak ditemukan !',
+                'data' => null,
+            ]);
+        }
+        
     }
 
     

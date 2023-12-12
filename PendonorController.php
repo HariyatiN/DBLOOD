@@ -13,7 +13,7 @@ class PendonorController extends Controller
     public function getPendonor()
     {
 
-        dd(Pendonor::all());
+       
         $pendonor = Pendonor::get();
 
         return response()->json($pendonor);
@@ -24,7 +24,11 @@ class PendonorController extends Controller
         $pendonor = Pendonor::find($id);
 
         if ($pendonor) {
-            return response()->json($pendonor);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Data berhasil diload !',
+                'data' => $pendonor,
+            ]);
         } else {
             return response()->json(['message' => 'Data pendonor tidak ditemukan']);
         }
