@@ -31,7 +31,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/darah/detail/{darah}', 'detail');
         Route::post('/darah/tambah', 'aksitambah');
         Route::get('/darah/tambah', 'tambah');
-        // Route::get('/darah/edit/{darah}', 'edit');
+        Route::get('/darah/edit/{darah}', 'edit');
         // Route::post('/darah/edit/{darah}', 'aksiedit');
        
     });
@@ -54,6 +54,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/info', 'aksitambah');
         Route::get('/info/edit/{info}', 'edit');
         Route::post('/info/edit/{info}', 'aksiEdit');
+        Route::delete('/info/delete/{info}', 'delete');
     });
 
 

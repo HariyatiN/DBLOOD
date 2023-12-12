@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Pendonor extends Model
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+class Pendonor extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table ="pendonor";
 
@@ -32,17 +35,17 @@ class Pendonor extends Model
 
     ];
 
-    // static $inputan = [
-    //     'nama' => 'require',
-    //     'jk' => 'require',
-    //     'tlp' => 'require',
-    //     'alamat' => 'require',
-    //     'gol_darah' => 'require',
-    //     'kode_p' => 'require',
-    //     'password' => 'require',
-    //     'foto' => 'require',
-    //     'level' => 'require',
-    // ];
+    static $inputan = [
+        'nama' => 'require',
+        'jk' => 'require',
+        'tlp' => 'require',
+        'alamat' => 'require',
+        'gol_darah' => 'require',
+        'kode_p' => 'require',
+        'password' => 'require',
+
+
+    ];
 
     static $pesan = [
         'nama' => 'Data tidak boleh kosong !',
@@ -52,9 +55,12 @@ class Pendonor extends Model
         'gol_darah' => 'Data tidak boleh kosong !',
         'kode_p' => 'Data tidak boleh kosong !',
         'password' => 'Data tidak boleh kosong !',
-        'foto' => 'Data tidak boleh kosong !',
-        'level' => 'Data tidak boleh kosong !',
+
+
     ];
+
+
+
 
 
 }

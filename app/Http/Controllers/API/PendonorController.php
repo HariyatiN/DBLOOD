@@ -34,39 +34,39 @@ class PendonorController extends Controller
        }
    }
 
-   public function createPendonor(PendonorStoreRequest $request)
-   {
+//    public function createPendonor(PendonorStoreRequest $request)
+//    {
 
-       // Check file upload
-       if ($request->hasFile('foto')) {
-           $foto = $request->file('foto');
-           $ext = $foto->extension();
-           $name = Hash::make($foto->getClientOriginalName()); // Use the original file name for hash
-           $namaFile = $name . '.' . $ext;
+//        // Check file upload
+//        if ($request->hasFile('foto')) {
+//            $foto = $request->file('foto');
+//            $ext = $foto->extension();
+//            $name = Hash::make($foto->getClientOriginalName()); // Use the original file name for hash
+//            $namaFile = $name . '.' . $ext;
 
-           // Store the file in the 'public/app/pendonor' directory
-           $path = $foto->storeAs('public/app/pendonor', $namaFile);
+//            // Store the file in the 'public/app/pendonor' directory
+//            $path = $foto->storeAs('public/app/pendonor', $namaFile);
 
-           // Create a new Pendonor instance
-           $pendonor = new Pendonor([
-               'nama' => $request->input('nama'),
-               'jk' => $request->input('jk'),
-               'tlp' => $request->input('tlp'),
-               'alamat' => $request->input('alamat'),
-               'gol_darah' => $request->input('gol_darah'),
-               'kode_p' => $request->input('kode_p'),
-               'password' => bcrypt($request->input('password')),
-               'foto' => 'app/pendonor/' . $namaFile,
-               // Add other fields as needed
-           ]);
+//            // Create a new Pendonor instance
+//            $pendonor = new Pendonor([
+//                'nama' => $request->input('nama'),
+//                'jk' => $request->input('jk'),
+//                'tlp' => $request->input('tlp'),
+//                'alamat' => $request->input('alamat'),
+//                'gol_darah' => $request->input('gol_darah'),
+//                'kode_p' => $request->input('kode_p'),
+//                'password' => bcrypt($request->input('password')),
+//                'foto' => 'app/pendonor/' . $namaFile,
+//                // Add other fields as needed
+//            ]);
 
-           // Save the pendonor data to the database
-           $pendonor->save();
+//            // Save the pendonor data to the database
+//            $pendonor->save();
 
-           // Return a JSON response with the saved pendonor data
-           return response()->json(['data' => $pendonor, 'message' => 'Pendonor created successfully'], 201);
-       } else {
-           return response()->json(['message' => 'Data pendonor tidak ditemukan']);
-       }
-   }
+//            // Return a JSON response with the saved pendonor data
+//            return response()->json(['data' => $pendonor, 'message' => 'Pendonor created successfully'], 201);
+//        } else {
+//            return response()->json(['message' => 'Data pendonor tidak ditemukan']);
+//        }
+//    }
 }

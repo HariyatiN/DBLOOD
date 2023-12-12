@@ -26,8 +26,11 @@ class DarahController extends Controller
 
    function aksitambah(Request $request){
     $darah = new Darah;
-    $darah->jenis_gol = $request->input('jenis_gol');
-    $darah->stok_darah = $request->input('stok_darah');
+    $darah->produk = $request->input('produk');
+    $darah->A = $request->input('A+');
+    $darah->B = $request->input('B+');
+    $darah->O = $request->input('O+');
+    $darah->AB = $request->input('AB+');
     $darah->save(); 
     return redirect('admin/darah');
 }
@@ -37,26 +40,18 @@ class DarahController extends Controller
     return view('admin.darah.edit', $data);
 }
 
-// function aksiEdit(Darah $darah , Request $request){
-//   $x = $request->file('thumbnail');
-
-//     if($x != null){
-      
-//       $file = $darah->foto;
-//       $hapus = File::delete($file);
-//       $ext = $request->file('thumbnail')->extension();
-//       $name = Hash::make($x);
-//       $namaFile = $name.'.'.$ext;
+function aksiEdit(Darah $darah , Request $request){
   
-//       $path = $x->storeAs('darah',$namaFile);
-//       $darah->jenis_gol = $request->jenis_gol;
-//       $darah->stok_darah = $request->stok_darah;
-//       $darah->save(); 
-//       return redirect('admin/darah')->with('success', 'Data berhasil diupdate');
-//     }else{
-//       return back()->with('danger', 'Data gagal disimpan');
+  $darah->produk = $request->input('produk');
+  $darah->A = $request->input('A+');
+  $darah->B = $request->input('B+');
+  $darah->O = $request->input('O+');
+  $darah->AB = $request->input('AB+');
+  $darah->save(); 
 
-//     }
-// }
+  return redirect('admin/darah');
 
+    }
 }
+
+

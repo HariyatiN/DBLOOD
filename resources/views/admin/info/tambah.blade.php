@@ -6,7 +6,7 @@
                 @csrf
                 <div class="card mt-5">
                     <div class="card-header">
-                        <h2 class="card-title">FORM TAMBAH INFO</h2>
+                        <h2 class="card-title text-dark">Form Tambah Info</h2>
                     </div>
                     <div class="card-body">
                         <div class="row">
