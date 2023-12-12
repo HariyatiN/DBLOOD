@@ -12,7 +12,24 @@ class Pendonor extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table ="pendonor";
+    // ...
+
+    public function getRememberToken()
+    {
+        return null;
+    }
+
+    public function setRememberToken($value)
+    {
+        // no action needed
+    }
+
+    public function getRememberTokenName()
+    {
+        return '';
+    }
+
+    protected $table = "pendonor";
 
 
 
@@ -30,22 +47,19 @@ class Pendonor extends Authenticatable
         'kode_p',
         'password',
         'foto',
-
-
-
     ];
+
 
     static $inputan = [
-        'nama' => 'require',
-        'jk' => 'require',
-        'tlp' => 'require',
-        'alamat' => 'require',
-        'gol_darah' => 'require',
-        'kode_p' => 'require',
-        'password' => 'require',
-
-
+        'nama' => 'required',
+        'jk' => 'required',
+        'tlp' => 'required',
+        'alamat' => 'required',
+        'gol_darah' => 'required',
+        'kode_p' => 'required',
+        'password' => 'required',
     ];
+
 
     static $pesan = [
         'nama' => 'Data tidak boleh kosong !',
