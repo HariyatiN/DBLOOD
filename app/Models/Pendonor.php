@@ -9,15 +9,15 @@ class Pendonor extends Model
 {
     use HasFactory;
 
-    protected $table = "pendonor";
+    protected $table ="pendonor";
 
 
 
     public function donor(){
         return  $this->hasMany(Donor::class, 'pendonor_id', 'id');
     }
-    
-    
+
+
     protected $fillable = [
         'nama',
         'jk',
@@ -27,9 +27,9 @@ class Pendonor extends Model
         'kode_p',
         'password',
         'foto',
-        
-        
-       
+
+
+
     ];
 
     static $inputan = [
@@ -41,7 +41,7 @@ class Pendonor extends Model
         'kode_p' => 'require',
         'password' => 'require',
         'foto' => 'require',
-        'level' => 'require',
+ 
     ];
 
     static $pesan = [

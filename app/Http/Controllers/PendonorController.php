@@ -26,14 +26,16 @@ class PendonorController extends Controller
     // $validated = $request->validate([Pendonor::$inputan, Pendonor::$pesan]);
 
     // cek file upload
-    $x = $request->file('foto');
 
+    $x = $request->file('foto');
     if($x != null){
       $ext = $request->file('foto')->extension();
       $name = Hash::make($x);
       $namaFile = $name.'.'.$ext;
 
+
       $path = $x->storeAs('pendonor', $namaFile);
+
 
       $p = new Pendonor;
       $p->nama = $request->nama;

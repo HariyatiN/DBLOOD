@@ -2,7 +2,7 @@
 
    <div class="row">
     <div class="col-md-12 p-5">
-        <div class="card mt-5">
+        <div class="card mt-3">
             <div class="card-header d-flex align-items-center justify-content-between">
                 <h2 class="card-title text-dark">Data Pendonor</h2>
                 <a href="{{ url('admin/pendonor/tambah') }}" class="btn btn-success">
@@ -11,25 +11,25 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>
+                                    <center>No.</center>
+                                </th>
                                 <th>
                                     <center>
                                        Action
                                     </center>
                                 </th>
                                 <th>
-                                    <center>No.</center>
-                                </th>
-                                <th>
                                     <center>Nama</center>
                                 </th>
                                 <th>
-                                    <center>Jk</center>
+                                    <center>Jenis Kelamin</center>
                                 </th>
                                 <th>
-                                    <center>Tlp</center>
+                                    <center>Telepon</center>
                                 </th>
                                 <th>
                                     <center>Alamat</center>
@@ -39,6 +39,10 @@
                         <tbody>
                  @foreach ($list as $x)
                             <tr>
+                               
+                                <td>
+                                    <center>{{ $loop->iteration }}</center>
+                                </td>
                                 <td>
                                     <center>
                                         <div class="btn-group">
@@ -53,9 +57,6 @@
                                             </a>
                                         </div>
                                     </center>
-                                </td>
-                                <td>
-                                    <center>{{ $loop->iteration }}</center>
                                 </td>
                                 <td>
                                     <center>

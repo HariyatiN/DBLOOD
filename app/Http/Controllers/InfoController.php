@@ -77,8 +77,9 @@ function aksiEdit(Info $info , Request $request){
       return back()->with('danger', 'Data gagal diupdate');
 
     }
+
+  
+
 }
 
-
 }
-

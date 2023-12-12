@@ -1,7 +1,7 @@
 <x-app>
     <div class="card">
      <div class="card-header">
-         <div class="card-title">Detail Stok Darah</div>
+         <div class="card-title text-dark">Detail Stok Darah</div>
          {{-- <a href="{{ url('admin/produk',$produk->id) }}/edit" class="btn btn-warning float-right">
              <i class="fas fa-edit"></i>
              Edit
