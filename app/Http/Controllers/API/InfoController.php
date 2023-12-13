@@ -10,7 +10,19 @@ class InfoController extends Controller
 {
    public  function  getInfo(){
         $info = Info::get();
-        return response()->json($info);
+        if($info){
+            return response()->json([
+                'status' => 200,
+                'message' => 'Data berhasil diload !',
+                'data' => $info,
+            ]);
+        }else{
+            return response()->json([
+                'status' => 404,
+                'message' => 'Data darah tidak ditemukan !',
+                'data' => null,
+            ]);
+        }
     }
     public function getInfoByid($id){
         $info = Info::find($id);

@@ -23,7 +23,7 @@ class PendonorController extends Controller
    }
   function aksitambah(Request $request){
 
-    $validated = $request->validate([Pendonor::$inputan, Pendonor::$pesan]);
+    // $validated = $request->validate([Pendonor::$inputan, Pendonor::$pesan]);
 
     // cek file upload
 
@@ -32,7 +32,11 @@ class PendonorController extends Controller
       $ext = $request->file('foto')->extension();
       $name = Hash::make($x);
       $namaFile = $name.'.'.$ext;
+
+
       $path = $x->storeAs('pendonor', $namaFile);
+
+
       $p = new Pendonor;
       $p->nama = $request->nama;
       $p->jk = $request->jk;
@@ -44,14 +48,14 @@ class PendonorController extends Controller
       $p->foto = 'app/'.$path;
 
       $p->save();
-  
-  
+
+
       return redirect('admin/pendonor')->with('success', 'Data berhasil disimpan');
     }else{
       return back()->with('danger', 'Data gagal disimpan');
 
     }
-   
+
   }
 
   function edit(Pendonor $pendonor){
@@ -61,7 +65,7 @@ class PendonorController extends Controller
 
   function aksiedit(Request $request, Pendonor $pendonor){
 
-  
+
 
     if($request->password != null){
 
@@ -75,9 +79,9 @@ class PendonorController extends Controller
         $ext = $request->file('foto')->extension();
         $name = Hash::make($x);
         $namaFile = $name.'.'.$ext;
-    
+
         $path = $x->storeAs('pendonor', $namaFile);
-    
+
 
         $pendonor->nama = $request->nama;
         $pendonor->jk = $request->jk;
@@ -87,12 +91,12 @@ class PendonorController extends Controller
         $pendonor->kode_p = $request->kode_p;
         $pendonor->password = bcrypt($request->password);
         $pendonor->foto = 'app/'.$path;
-     
+
         $pendonor->update();
-        
+
         return redirect('admin/pendonor')->with('success', 'Data berhasil diupdate');
       }else{
-        
+
         $pendonor->nama = $request->nama;
         $pendonor->jk = $request->jk;
         $pendonor->tlp = $request->tlp;
@@ -102,7 +106,7 @@ class PendonorController extends Controller
         $pendonor->password = bcrypt($request->password);
 
         $pendonor->update();
-        
+
         return redirect('admin/pendonor')->with('success', 'Data berhasil diupdate');
     }
 
@@ -118,9 +122,9 @@ class PendonorController extends Controller
         $ext = $request->file('foto')->extension();
         $name = Hash::make($x);
         $namaFile = $name.'.'.$ext;
-    
+
         $path = $x->storeAs('pendonor', $namaFile);
-    
+
 
         $pendonor->nama = $request->nama;
         $pendonor->jk = $request->jk;
@@ -131,7 +135,7 @@ class PendonorController extends Controller
         $pendonor->foto = 'app/'.$path;
 
         $pendonor->update();
-        
+
         return redirect('admin/pendonor')->with('success', 'Data berhasil diupdate');
       }else{
         $pendonor->nama = $request->nama;
@@ -142,7 +146,7 @@ class PendonorController extends Controller
         $pendonor->kode_p = $request->kode_p;
 
         $pendonor->update();
-            
+
         return redirect('admin/pendonor')->with('success', 'Data berhasil diupdate');
       }
     }
@@ -152,5 +156,5 @@ class PendonorController extends Controller
 
 
 
-  
+
 }

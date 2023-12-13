@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'pendonor', // Ganti dari 'web' ke 'pendonor'
         'passwords' => 'users',
     ],
 
@@ -36,9 +36,9 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'pendonor' => [ // Tambahkan guard untuk 'pendonor'
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'pendonor',
         ],
     ],
 
@@ -64,11 +64,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'pendonor' => [ // Tambahkan provider untuk 'pendonor'
+            'driver' => 'eloquent',
+            'model' => App\Models\Pendonor::class,
+        ],
     ],
 
     /*

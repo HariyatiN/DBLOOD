@@ -7,6 +7,17 @@ use App\Http\Controllers\API\Homecontroller;
 use App\Http\Controllers\API\InfoController;
 use App\Http\Controllers\API\PendonorController;
 use App\Http\Controllers\API\DonorController;
+use App\Http\Controllers\API\AuthController;
+
+
+
+Route::controller(AuthController::class)->group(function (){
+            Route::post('/register', 'register');
+            Route::post('/login','login');
+});
+
+
+
 
 Route::controller(DarahController::class)->group(function () {
     Route::get('/darah', 'getDarah');
