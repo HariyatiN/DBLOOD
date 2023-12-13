@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'pendonor',
         ],
+        'admin' => [ 
+            'driver' => 'session',
+            'provider' => 'admin',
+        ],
     ],
 
     /*
@@ -67,6 +71,10 @@ return [
         'pendonor' => [ // Tambahkan provider untuk 'pendonor'
             'driver' => 'eloquent',
             'model' => App\Models\Pendonor::class,
+        ],
+        'admin' => [ // Tambahkan provider untuk 'admin'
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
     ],
 

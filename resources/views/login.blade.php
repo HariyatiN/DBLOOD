@@ -2,153 +2,94 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by Codervent</title>
-    <!-- loader-->
-    <link href="{{ url('public/template-admin') }}/assets/css/pace.min.css" rel="stylesheet" />
-    <script src="assets/js/pace.min.js"></script>
-    <!--favicon-->
-    <link rel="icon" href="{{ url('public/template-admin') }}/assets/images/favicon.ico" type="image/x-icon">
-    <!-- Bootstrap core CSS-->
-    <link href="{{ url('public/template-admin') }}/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- animate CSS-->
-    <link href="{{ url('public/template-admin') }}/assets/css/animate.css" rel="stylesheet" type="text/css" />
-    <!-- Icons CSS-->
-    <link href="{{ url('public/template-admin') }}/assets/css/icons.css" rel="stylesheet" type="text/css" />
-    <!-- Custom Style-->
-    <link href="{{ url('public/template-admin') }}/assets/css/app-style.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ url('public/darkpan-1.0.0') }}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{{ url('public/darkpan-1.0.0') }}/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ url('public/darkpan-1.0.0') }}/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{ url('public/darkpan-1.0.0') }}/css/style.css" rel="stylesheet">
 </head>
 
-<body class="bg-theme bg-theme1">
-
-    <!-- start loader -->
-    <div id="pageloader-overlay" class="visible incoming">
-        <div class="loader-wrapper-outer">
-            <div class="loader-wrapper-inner">
-                <div class="loader"></div>
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
         </div>
-    </div>
-    <!-- end loader -->
+        <!-- Spinner End -->
 
-    <!-- Start wrapper-->
-    <div id="wrapper">
 
-        <div class="loader-wrapper">
-            <div class="lds-ring">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        <div class="card card-authentication1 mx-auto my-5">
-            <div class="card-body">
-                <div class="card-content p-2">
-                    <div class="text-center">
-                        <img src="assets/images/logo-icon.png" alt="logo icon">
+        <!-- Sign In Start -->
+        <div class="container-fluid">
+            <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                    <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <a href="index.html" class="">
+                                <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>DBLOOD</h3>
+                            </a>
+                            <h3>Login</h3>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <a href="">Forgot Password</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
+                        <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
                     </div>
-                    <div class="card-title text-uppercase text-center py-3">Sign In</div>
-                      <form action="#" method="post">
-                        @csrf <!-- Token CSRF untuk keamanan formulir Laravel -->
-                        <div class="form-group">
-                            <label for="exampleInputUsername" class="sr-only">Username</label>
-                            <div class="position-relative has-icon-right">
-                                <input type="text" name="email" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Email">
-                                <div class="form-control-position">
-                                    <i class="icon-user"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword" class="sr-only">Password</label>
-                            <div class="position-relative has-icon-right">
-                                <input type="password" name="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Enter Password">
-                                <div class="form-control-position">
-                                    <i class="icon-lock"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-6">
-                                <div class="icheck-material-white">
-                                    <input type="checkbox" id="user-checkbox" name="remember" checked/>
-                                    <label for="user-checkbox">Remember me</label>
-                                </div>
-                            </div>
-                            <div class="form-group col-6 text-right">
-                                <a href="{{ url('public/template-admin') }}/{{ route('password.request') }}">Reset Password</a>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-light btn-block">Sign In</button>
-                    </form>
                 </div>
             </div>
-            <div class="card-footer text-center py-3">
-                <p class="text-warning mb-0">Do not have an account? <a href="{{ url('public/template-admin') }}/register.html"> Sign Up here</a></p>
-            </div>
         </div>
+        <!-- Sign In End -->
+    </div>
 
-        <!--Start Back To Top Button-->
-        <a href="{{ url('public/template-admin') }}/javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
-        <!--End Back To Top Button-->
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url('public/darkpan-1.0.0') }}/lib/chart/chart.min.js"></script>
+    <script src="{{ url('public/darkpan-1.0.0') }}/lib/easing/easing.min.js"></script>
+    <script src="{{ url('public/darkpan-1.0.0') }}/lib/waypoints/waypoints.min.js"></script>
+    <script src="{{ url('public/darkpan-1.0.0') }}/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{ url('public/darkpan-1.0.0') }}/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="{{ url('public/darkpan-1.0.0') }}/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="{{ url('public/darkpan-1.0.0') }}/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-        <!--start color switcher-->
-        <div class="right-sidebar">
-            <div class="switcher-icon">
-                <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-            </div>
-            <div class="right-sidebar-content">
-
-                <p class="mb-0">Gaussion Texture</p>
-                <hr>
-
-                <ul class="switcher">
-                    <li id="theme1"></li>
-                    <li id="theme2"></li>
-                    <li id="theme3"></li>
-                    <li id="theme4"></li>
-                    <li id="theme5"></li>
-                    <li id="theme6"></li>
-                </ul>
-
-                <p class="mb-0">Gradient Background</p>
-                <hr>
-
-                <ul class="switcher">
-                    <li id="theme7"></li>
-                    <li id="theme8"></li>
-                    <li id="theme9"></li>
-                    <li id="theme10"></li>
-                    <li id="theme11"></li>
-                    <li id="theme12"></li>
-                    <li id="theme13"></li>
-                    <li id="theme14"></li>
-                    <li id="theme15"></li>
-                </ul>
-
-            </div>
-        </div>
-        <!--end color switcher-->
-
-    </div><!--wrapper-->
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-
-    <!-- sidebar-menu js -->
-    <script src="assets/js/sidebar-menu.js"></script>
-
-    <!-- Custom scripts -->
-    <script src="assets/js/app-script.js"></script>
-
+    <!-- Template Javascript -->
+    <script src="{{ url('public/darkpan-1.0.0') }}/js/main.js"></script>
 </body>
 
 </html>
