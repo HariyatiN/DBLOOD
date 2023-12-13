@@ -17,8 +17,11 @@ Route::get('/', function () {
 });
 
 Route::controller(AuthController::class)->group(function(){
-            Route::get('/login', 'showLogin');
+            Route::get('/login', 'showLogin')->name('login');
+            Route::post('/login', 'login');
 });
+
+
 
 Route::prefix('admin')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
