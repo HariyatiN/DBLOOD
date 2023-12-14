@@ -147,6 +147,12 @@ class PendonorController extends Controller
 
         $pendonor->update();
 
+        function destroy(Pendonor $pendonor){
+          $pendonor->delete();
+      
+        return redirect('admin/darah');
+        
+        }
         return redirect('admin/pendonor')->with('success', 'Data berhasil diupdate');
       }
     }

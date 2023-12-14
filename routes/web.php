@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DarahController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PendonorController;
@@ -19,6 +20,7 @@ Route::get('/', function () {
 Route::controller(AuthController::class)->group(function(){
             Route::get('/login', 'showLogin')->name('login');
             Route::post('/login', 'login');
+           
 });
 
 
@@ -28,7 +30,12 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', 'index');
     
     });
-    
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/admin' , 'index');
+        Route::get('admins/tambah' , 'tambah');
+        Route::post('admins/tambah' , 'aksitambah');
+        Route::delete('admins/delete/{admin}' , 'delete');
+    });
     Route::controller(DarahController::class)->group(function () {
         Route::get('/darah', 'index');
         Route::get('/darah/detail/{darah}', 'detail');
@@ -36,6 +43,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/darah/tambah', 'tambah');
         Route::get('/darah/edit/{darah}', 'edit');
         // Route::post('/darah/edit/{darah}', 'aksiedit');
+        // Route::post('/darah/delete/{darah}', 'delete');
+        
        
     });
     
@@ -46,6 +55,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/pendonor/tambah', 'aksitambah');
         Route::get('/pendonor/edit/{pendonor}', 'edit');
         Route::post('/pendonor/edit/{pendonor}', 'aksiedit');
+        Route::post('/pendonor/delete/{pendonor}', 'delete');
     
     });
 

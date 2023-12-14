@@ -48,9 +48,6 @@ function aksiEdit(Darah $darah , Request $request){
   $darah->O = $request->input('O+');
   $darah->AB = $request->input('AB+');
   $darah->save(); 
-
-  return redirect('admin/darah');
-
     }
 }
 
