@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Layout\Button;
+namespace App\View\Components\Button;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -11,7 +11,7 @@ class Delete extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct( public $id = null, public $path = null)
+    public function __construct(public $id = null, public $path=null)
     {
         //
     }
@@ -21,6 +21,6 @@ class Delete extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout.button.delete');
+        return view('components.button.delete');
     }
 }

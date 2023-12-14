@@ -50,7 +50,7 @@
                            
                             <div class="col-md-6">
                                 <x-input.input title="Foto / Gambar" name="foto" type="file"
-                                    placeholder="Masukan password ..." />
+                                    placeholder="Masukan Foto ..." />
                             </div>
                             <div class="col-md-12 mt-3">
                                 <div class="d-flex align-items-center justify-content-center">

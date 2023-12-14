@@ -88,7 +88,7 @@
 
     <!-- Template Javascript -->
     <script src="{{ url('public/darkpan-1.0.0') }}/js/main.js"></script>
-
+    <script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('script')
 </body>
 

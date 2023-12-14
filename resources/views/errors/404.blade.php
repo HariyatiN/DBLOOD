@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-   <h1>MANGEAK</h1>
+   <h1>404 normal yak</h1>
 </body>
 </html>
