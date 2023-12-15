@@ -25,6 +25,7 @@ class PendonorController extends Controller
 
     // $validated = $request->validate([Pendonor::$inputan, Pendonor::$pesan]);
 
+    $kodePendonor = 'P' . substr(uniqid(), 0, 4);
     // cek file upload
 
     $x = $request->file('foto');
@@ -43,7 +44,7 @@ class PendonorController extends Controller
       $p->tlp = $request->tlp;
       $p->alamat = $request->alamat;
       $p->gol_darah = $request->gol_darah;
-      $p->kode_p = $request->kode_p;
+      $p->kode_p = $kodePendonor;
       $p->password = bcrypt($request->password);
       $p->foto = 'app/'.$path;
 
@@ -149,9 +150,9 @@ class PendonorController extends Controller
 
         function destroy(Pendonor $pendonor){
           $pendonor->delete();
-      
+
         return redirect('admin/darah');
-        
+
         }
         return redirect('admin/pendonor')->with('success', 'Data berhasil diupdate');
       }

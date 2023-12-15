@@ -19,7 +19,7 @@ class AuthController extends Controller
             'tlp' => 'required',
             'alamat' => 'required',
             'gol_darah' => 'required',
-            'kode_p' => 'required | unique:pendonor',
+            'kode_p' ,
             'password' => 'required',
             'confirm_password' => 'required | same:password',
 

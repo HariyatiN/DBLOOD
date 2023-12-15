@@ -23,7 +23,7 @@
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
                                     @error('jk')
-                                    <span class="float-right text-danger">{{ $message }}</span> 
+                                    <span class="float-right text-danger">{{ $message }}</span>
                                 @enderror
                                 </div>
                             </div>
@@ -39,15 +39,15 @@
                                 <x-input.input title="Golongan Darah" name="gol_darah" type="text"
                                     placeholder="Masukan golongan darah ..." />
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <x-input.input title="Kode Pendonor" name="kode_p" type="number"
                                     placeholder="Masukan Kode Pendonor ..." />
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <x-input.input title="Password" name="password" type="password"
                                     placeholder="Masukan password ..." />
                             </div>
-                           
+
                             <div class="col-md-6">
                                 <x-input.input title="Foto / Gambar" name="foto" type="file"
                                     placeholder="Masukan Foto ..." />

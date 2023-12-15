@@ -56,7 +56,7 @@ class Pendonor extends Authenticatable
         'tlp' => 'required',
         'alamat' => 'required',
         'gol_darah' => 'required',
-        'kode_p' => 'required',
+
         'password' => 'required',
     ];
 
@@ -67,11 +67,21 @@ class Pendonor extends Authenticatable
         'tlp' => 'Data tidak boleh kosong !',
         'alamat' => 'Data tidak boleh kosong !',
         'gol_darah' => 'Data tidak boleh kosong !',
-        'kode_p' => 'Data tidak boleh kosong !',
+
         'password' => 'Data tidak boleh kosong !',
 
 
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($pendonor) {
+            $pendonor->kode_p = 'P-' .substr(uniqid(), 0, 4);
+        });
+    }
+
 
 
 
