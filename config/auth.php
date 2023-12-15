@@ -36,15 +36,25 @@ return [
     */
 
     'guards' => [
-        'pendonor' => [ // Tambahkan guard untuk 'pendonor'
+        'web' => [
             'driver' => 'session',
-            'provider' => 'pendonor',
+            'provider' => 'users',
         ],
-        'admin' => [ 
-            'driver' => 'session',
-            'provider' => 'admin',
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+        'sanctum' => [
+            'driver' => 'sanctum',
+            'provider' => 'pendonor', // Sesuaikan dengan nama provider yang Anda gunakan
+        ],
+        'pendonor' => [
+            'driver' => 'sanctum',
+            'provider' => 'pendonor', // Sesuaikan dengan nama provider yang Anda gunakan
         ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------

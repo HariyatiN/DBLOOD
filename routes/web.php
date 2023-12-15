@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::controller(AuthController::class)->group(function(){
             Route::get('/login', 'showLogin')->name('login');
             Route::post('/login', 'login');
-           
+
 });
 
 
@@ -28,7 +28,7 @@ Route::controller(AuthController::class)->group(function(){
 Route::prefix('admin')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index');
-    
+
     });
     Route::controller(AdminController::class)->group(function(){
         Route::get('/admin' , 'index');
@@ -44,10 +44,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/darah/edit/{darah}', 'edit');
         // Route::post('/darah/edit/{darah}', 'aksiedit');
         // Route::post('/darah/delete/{darah}', 'delete');
-        
-       
+
+
     });
-    
+
     Route::controller(PendonorController::class)->group(function () {
         Route::get('/pendonor', 'index');
         Route::get('/pendonor/detail/{pendonor}', 'detail');
@@ -56,7 +56,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/pendonor/edit/{pendonor}', 'edit');
         Route::post('/pendonor/edit/{pendonor}', 'aksiedit');
         Route::post('/pendonor/delete/{pendonor}', 'delete');
-    
+
     });
 
 
@@ -73,12 +73,12 @@ Route::prefix('admin')->group(function () {
 
     Route::controller(DonorController::class)->group(function (){
         Route::get('/donor', 'index');
-   
- 
+
+
     });
-   
-    
-    
+
+
+
 });
 
 

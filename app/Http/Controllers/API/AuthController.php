@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Pendonor;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
 
@@ -53,35 +53,56 @@ class AuthController extends Controller
 
 
 
-    function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'kode_p' => ['required'],
-            'password' => ['required'],
-        ]);
+   function login(Request $request)
+{
+    $credentials = $request->validate([
+        'kode_p' => ['required'],
+        'password' => ['required'],
+    ]);
 
-        try {
-            if (Auth::guard('pendonor')->attempt($credentials, true)) {
-                $pendonor = Auth::guard('pendonor')->user();
-                return response()->json([
-                    'status' => 200,
-                    'message' => "Login berhasil!",
-                    'data' => $pendonor,
-                ]);
-            } else {
-                return response()->json([
-                    'status' => 401, // Unauthorized
-                    'message' => "Kode pengguna atau kata sandi tidak valid.",
-                    'data' => null,
-                ]);
-            }
-        } catch (\Exception $e) {
-            // Handle exceptions if needed
+    try {
+        $pendonor = Pendonor::where('kode_p', $credentials['kode_p'])->first();
+
+        if ($pendonor && Hash::check($credentials['password'], $pendonor->password)) {
+            $token = $pendonor->createToken('pendonor-token')->plainTextToken;
+
             return response()->json([
-                'status' => 500, // Internal Server Error
-                'message' => "Terjadi kesalahan dalam proses login.",
-                'data' => $e,
+                'status' => 200,
+                'message' => "Login berhasil!",
+                'data' => [
+                    'pendonor' => $pendonor,
+                    'token' => $token,
+                ],
+            ]);
+        } else {
+            return response()->json([
+                'status' => 401, // Unauthorized
+                'message' => "Kode pengguna atau kata sandi tidak valid.",
+                'data' => null,
             ]);
         }
+    } catch (\Exception $e) {
+        // Handle exceptions if needed
+        return response()->json([
+            'status' => 500, // Internal Server Error
+            'message' => "Terjadi kesalahan dalam proses login.",
+            'data' => $e,
+        ]);
     }
+}
+
+
+
+public function logout(Request $request)
+{
+    $request->user()->tokens()->delete();
+
+    return response()->json([
+        'status' => 200,
+        'message' => 'Logout berhasil.',
+        'data' => null,
+    ]);
+
+}
+
 }

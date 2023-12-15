@@ -18,7 +18,7 @@ Route::controller(AuthController::class)->group(function (){
 
 
 
-
+Route::middleware(['checkLogin'])->group(function () {
 Route::controller(DarahController::class)->group(function () {
     Route::get('/darah', 'getDarah');
     Route::get('/darah/{id}', 'getDarahById');
@@ -37,5 +37,10 @@ Route::controller(PendonorController::class)->group(function () {
 Route::controller(DonorController::class)->group(function () {
     Route::get('/donor', 'getData');
 });
+
+Route::post('/logout', [AuthController::class, 'logout']);
+
+});
+
 
 
