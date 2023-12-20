@@ -33,6 +33,8 @@ Route::controller(PendonorController::class)->group(function () {
     Route::get('/pendonor', 'getPendonor');
     Route::get('/pendonor/{id}', 'getPendonorById' );
     Route::post('/pendonor',  'createPendonor');
+    Route::post('/pendonor/upload/{id}',  'uploadFoto');
+    Route::get('/pendonor/upload/{id}',  'showFoto');
 });
 Route::controller(DonorController::class)->group(function () {
     Route::get('/donor', 'getData');

@@ -18,12 +18,12 @@ Route::get('/', function () {
 });
 
 Route::controller(AuthController::class)->group(function(){
-            Route::get('/login', 'showLogin')->name('login');
+            // Route::get('/login', 'showLogin')->name('login');
             Route::post('/login', 'login');
 
 });
 
-
+// Route::group(['middleware' => 'auth:admin'], function () {
 
 Route::prefix('admin')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
@@ -80,5 +80,7 @@ Route::prefix('admin')->group(function () {
 
 
 });
+
+// });
 
 

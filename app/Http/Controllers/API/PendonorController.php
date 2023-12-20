@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PendonorStoreRequest;
+
 use Illuminate\Support\Facades\Hash;
 use App\Models\Pendonor;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 class PendonorController extends Controller
 {
     public function getPendonor()
@@ -34,39 +37,63 @@ class PendonorController extends Controller
        }
    }
 
-//    public function createPendonor(PendonorStoreRequest $request)
-//    {
 
-//        // Check file upload
-//        if ($request->hasFile('foto')) {
-//            $foto = $request->file('foto');
-//            $ext = $foto->extension();
-//            $name = Hash::make($foto->getClientOriginalName()); // Use the original file name for hash
-//            $namaFile = $name . '.' . $ext;
+   public function uploadFoto(Request $request, $id){
+    // Validate the request data, including the 'foto' field
+    $request->validate([
+        'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
 
-//            // Store the file in the 'public/app/pendonor' directory
-//            $path = $foto->storeAs('public/app/pendonor', $namaFile);
+    ]);
 
-//            // Create a new Pendonor instance
-//            $pendonor = new Pendonor([
-//                'nama' => $request->input('nama'),
-//                'jk' => $request->input('jk'),
-//                'tlp' => $request->input('tlp'),
-//                'alamat' => $request->input('alamat'),
-//                'gol_darah' => $request->input('gol_darah'),
-//                'kode_p' => $request->input('kode_p'),
-//                'password' => bcrypt($request->input('password')),
-//                'foto' => 'app/pendonor/' . $namaFile,
-//                // Add other fields as needed
-//            ]);
+    // Find the Pendonor model by ID
+    $pendonor = Pendonor::findOrFail($id);
 
-//            // Save the pendonor data to the database
-//            $pendonor->save();
+    // Delete the existing photo if it exists
+    if (!empty($pendonor->foto)) {
+        $oldFilePath = public_path('profile') . '/' . $pendonor->foto;
+        if (file_exists($oldFilePath)) {
+            unlink($oldFilePath);
+        }
+    }
 
-//            // Return a JSON response with the saved pendonor data
-//            return response()->json(['data' => $pendonor, 'message' => 'Pendonor created successfully'], 201);
-//        } else {
-//            return response()->json(['message' => 'Data pendonor tidak ditemukan']);
-//        }
-//    }
+    if($request->hasFile('foto')){
+        $file = $request->file('foto');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('app/pendonor'), $fileName);
+        $pendonor->foto = $file;
+    }
+
+
+    $pendonor->save();
+
+    return response()->json([
+        'status' => 200,
+        'message' => 'Foto Pendonor berhasil diubah!',
+        'data' => $pendonor,
+    ]);
+}
+
+public function showFoto($id)
+{
+    // Find the Pendonor model by ID
+    $pendonor = Pendonor::findOrFail($id);
+
+    // Check if the 'foto' field is not empty
+    if (!empty($pendonor->foto)) {
+        $filePath = public_path('app/pendonor') . '/' . $pendonor->foto;
+
+        // Check if the file exists
+        if (file_exists($filePath)) {
+            // Return the image with appropriate headers
+            return response()->file($filePath);
+        }
+    }
+
+    // If the foto doesn't exist, you may return a default image or handle it based on your requirements
+    return response()->json([
+        'status' => 404,
+        'message' => 'Foto Pendonor tidak ditemukan',
+    ], 404);
+}
+
 }
