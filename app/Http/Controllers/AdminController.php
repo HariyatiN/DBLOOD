@@ -21,34 +21,34 @@ class AdminController extends Controller
     function aksitambah(Request $request){
 
       // $validated = $request->validate([Pendonor::$inputan, Pendonor::$pesan]);
-  
+
       // cek file upload
-  
+
       $x = $request->file('foto');
       if($x != null){
         $ext = $request->file('foto')->extension();
         $name = Hash::make($x);
         $namaFile = $name.'.'.$ext;
-  
-  
+
+
         $path = $x->storeAs('admin', $namaFile);
-  
-  
+
+
         $a = new Admin;
         $a->nama = $request->nama;
         $a->email = $request->email;
         $a->password = bcrypt($request->password);
         $a->foto ='app/'.$path;
-  
+
         $a->save();
-  
-  
+
+
         return redirect('admin/admin')->with('success', 'Data berhasil disimpan');
       }else{
         return back()->with('danger', 'Data gagal disimpan');
-  
+
       }
-  
+
     }
 
     function delete(Admin $admin){

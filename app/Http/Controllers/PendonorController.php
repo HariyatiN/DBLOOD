@@ -25,7 +25,7 @@ class PendonorController extends Controller
 
     // $validated = $request->validate([Pendonor::$inputan, Pendonor::$pesan]);
 
-    $kodePendonor = 'P' . substr(uniqid(), 0, 4);
+    $kodePendonor = 'P' .substr(uniqid(), 0, 4);
     // cek file upload
 
     $x = $request->file('foto');

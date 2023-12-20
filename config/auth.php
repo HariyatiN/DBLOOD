@@ -53,6 +53,11 @@ return [
             'driver' => 'sanctum',
             'provider' => 'pendonor', // Sesuaikan dengan nama provider yang Anda gunakan
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin', // Sesuaikan dengan nama provider yang Anda gunakan
+        ],
     ],
 
 

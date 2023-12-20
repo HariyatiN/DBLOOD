@@ -18,12 +18,13 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-       
+
+
             if (Auth::guard('admin')->attempt($credentials, true)) {
-                return redirect('admin')->with('login sukses');
+                return redirect('admin/dashboard')->with('login sukses');
             } else {
                 return redirect('login')->with('login gagal');
             }
-       
+
     }
 }

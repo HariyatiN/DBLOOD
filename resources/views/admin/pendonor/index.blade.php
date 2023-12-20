@@ -10,7 +10,7 @@
                 </a>
             </div>
             <div class="card-body">
-               
+
                     <table class="table table-striped table-responsive" id="table">
                         <thead >
                             <tr>
@@ -42,7 +42,7 @@
                         <tbody>
                  @foreach ($list as $x)
                             <tr>
-                               
+
                                 <td>
                                     <center>{{ $loop->iteration }}</center>
                                 </td>
@@ -66,13 +66,13 @@
                                 </td>
                                 <td>
                                     <center>
-                                        <img src="{{ url('public') }}/{{ $x->foto }}" alt="" style="width: 35px;height:35px;border-radius:100%;maring-right: 12px !important">
+                                        <img src="{{ url('public/' . $x->foto) }}" alt="" style="width: 35px;height:35px;border-radius:100%;maring-right: 12px !important">
                                     </center>
                                 </td>
                                 <td>
 
                                     <center>
-                                      
+
                                         <span style="display: inline-block;margin-left: 12px !important">  {{ $x->nama }}</span>
                                     </center>
                                 </td>
@@ -89,7 +89,7 @@
                      @endforeach
                         </tbody>
                     </table>
-              
+
             </div>
         </div>
     </div>
