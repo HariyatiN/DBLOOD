@@ -1,5 +1,5 @@
 <x-app>
-    <div class="card">
+    <div class="card m-5">
      <div class="card-header">
          <div class="card-title">Detail Data Pendonor</div>
          {{-- <a href="{{ url('admin/produk',$produk->id) }}/edit" class="btn btn-warning float-right">
@@ -26,15 +26,14 @@
                      <dt>Password</dt>
                      <dd>{{$pendonor->password}}</dd>
                      <dt>Foto</dt>
-                     <img src="{{ asset('public/app/pendonor/' . basename($pendonor->foto)) }}" alt="Foto" style="width: 100%">
                      <dt>Level</dt>
                      <dd>{{$pendonor->level}}</dd>
                  </dl>
                  
              </div>
-             {{-- <div class="col-md-6">
-                 <img src="{{$info->foto}}" alt="" style="width:100% ">
-             </div> --}}
+             <div class="col-md-6">
+                <img src="{{ asset('public/app/pendonor/' . basename($pendonor->foto)) }}" alt="Foto" style="width: 70%">
+             </div> 
          </div>
      </div>
     </div>

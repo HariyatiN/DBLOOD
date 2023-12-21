@@ -49,15 +49,19 @@
                                 <td>
                                     <center>
                                         <div class="btn-group">
-                                            <a href="#" class="btn btn-warning">
+                                            <a href="{{ url('admin/pendonor/detail', $x->id) }}" class="btn btn-warning">
                                                 <i class="far fa-eye"></i>
                                             </a>
                                             <a href="{{ url('admin/pendonor/edit', $x->id) }}" class="btn btn-primary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a href="#" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini ?!');">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
+                                            <form action="{{ url('admin/pendonor/delete', $x->id) }}" method="POST" style="display: inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?!');">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </form>
 
                                             {{-- <x-button.delete id="{{ $pendonor->id }}"  /> --}}
 

@@ -55,7 +55,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/pendonor/tambah', 'aksitambah');
         Route::get('/pendonor/edit/{pendonor}', 'edit');
         Route::post('/pendonor/edit/{pendonor}', 'aksiedit');
-        Route::post('/pendonor/delete/{pendonor}', 'delete');
+        Route::delete('/pendonor/delete/{pendonor}', 'destroy');
 
     });
 
