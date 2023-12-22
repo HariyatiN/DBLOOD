@@ -6,9 +6,10 @@
           <h3 class="text-primary"><i img="logo darah.png"></i>DBLOOD</h3>
       </a>
       <div class="d-flex align-items-center ms-4 mb-4">
+        
           <div class="position-relative">
-              <img class="rounded-circle" src="{{ url('public/darkpan-1.0.0') }}/img/kucing.jpeg" alt="" style="width: 40px; height: 40px; bject-fit: contain !important;">
-              <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+              <img class="rounded-circle" src="{{ url('public') }}/{{ auth()->user()->foto }} " alt="" style="width: 40px; height: 40px; bject-fit: contain !important;">
+              {{-- <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div> --}}
           </div>
           <div class="ms-3 ">
               <h6 class="mb-0 " style="color: black !important">
