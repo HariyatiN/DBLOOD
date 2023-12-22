@@ -89,7 +89,7 @@ class PendonorController extends Controller
         $pendonor->tlp = $request->tlp;
         $pendonor->alamat = $request->alamat;
         $pendonor->gol_darah = $request->gol_darah;
-        $pendonor->kode_p = $request->kode_p;
+   
         $pendonor->password = bcrypt($request->password);
         $pendonor->foto = 'app/'.$path;
 
@@ -148,12 +148,7 @@ class PendonorController extends Controller
 
         $pendonor->update();
 
-        function destroy(Pendonor $pendonor){
-          $pendonor->delete();
-
-        return redirect('admin/darah');
-
-        }
+        
         return redirect('admin/pendonor')->with('success', 'Data berhasil diupdate');
       }
     }
@@ -161,7 +156,12 @@ class PendonorController extends Controller
 
   }
 
+  function destroy(Pendonor $pendonor){
+  $pendonor->delete();
 
+  return redirect('admin/pendonor');
+
+  }
 
 
 }

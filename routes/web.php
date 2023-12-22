@@ -33,9 +33,12 @@ Route::prefix('admin')->group(function () {
     });
     Route::controller(AdminController::class)->group(function(){
         Route::get('/admin' , 'index');
+        Route::get('/admins/detail/{admin}', 'detail');
         Route::get('admins/tambah' , 'tambah');
         Route::post('admins/tambah' , 'aksitambah');
-        Route::delete('admins/delete/{admin}' , 'delete');
+        Route::get('/admins/edit/{admin}', 'edit');
+        Route::post('/admins/edit/{admin}', 'aksiedit');
+        Route::delete('admins/delete/{admin}' , 'destroy');
     });
     Route::controller(DarahController::class)->group(function () {
         Route::get('/darah', 'index');
@@ -56,7 +59,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/pendonor/tambah', 'aksitambah');
         Route::get('/pendonor/edit/{pendonor}', 'edit');
         Route::post('/pendonor/edit/{pendonor}', 'aksiedit');
-        Route::post('/pendonor/delete/{pendonor}', 'delete');
+        Route::delete('/pendonor/delete/{pendonor}', 'destroy');
 
     });
 
@@ -68,7 +71,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/info', 'aksitambah');
         Route::get('/info/edit/{info}', 'edit');
         Route::post('/info/edit/{info}', 'aksiEdit');
-        Route::delete('/info/delete/{info}', 'delete');
+        Route::delete('/info/delete/{info}', 'destroy');
     });
 
 
