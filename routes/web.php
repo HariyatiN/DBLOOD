@@ -18,12 +18,13 @@ Route::get('/', function () {
 });
 
 Route::controller(AuthController::class)->group(function(){
-            // Route::get('/login', 'showLogin')->name('login');
-            Route::post('/login', 'login');
+            Route::get('/login', 'showLogin')->name('login');
+            Route::post('/login', 'loginProcess');
+            Route::post('/logout', 'logout');
 
 });
 
-// Route::group(['middleware' => 'auth:admin'], function () {
+Route::group(['middleware' => 'auth:admin'], function () {
 
 Route::prefix('admin')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
@@ -79,11 +80,15 @@ Route::prefix('admin')->group(function () {
 
 
     });
+    Route::controller(AuthController::class)->group(function(){
 
+        Route::get('/logout', 'logout');
+
+});
 
 
 });
 
-// });
+});
 
 
