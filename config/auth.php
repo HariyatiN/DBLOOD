@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'admin',
         ],
         'api' => [
             'driver' => 'token',
@@ -47,16 +47,16 @@ return [
         ],
         'sanctum' => [
             'driver' => 'sanctum',
-            'provider' => 'pendonor', // Sesuaikan dengan nama provider yang Anda gunakan
+            'provider' => 'pendonor',
         ],
         'pendonor' => [
             'driver' => 'sanctum',
-            'provider' => 'pendonor', // Sesuaikan dengan nama provider yang Anda gunakan
+            'provider' => 'pendonor',
         ],
 
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admin', // Sesuaikan dengan nama provider yang Anda gunakan
+            'provider' => 'admin',
         ],
     ],
 
