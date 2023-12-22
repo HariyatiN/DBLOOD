@@ -89,7 +89,7 @@ class PendonorController extends Controller
         $pendonor->tlp = $request->tlp;
         $pendonor->alamat = $request->alamat;
         $pendonor->gol_darah = $request->gol_darah;
-        $pendonor->kode_p = $request->kode_p;
+   
         $pendonor->password = bcrypt($request->password);
         $pendonor->foto = 'app/'.$path;
 

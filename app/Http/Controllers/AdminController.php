@@ -51,6 +51,34 @@ class AdminController extends Controller
 
     }
 
+    function edit(Admin $admin){
+      $data['list'] = $admin;
+      return view('admin.admin.edit', $data);
+  }
+
+    function aksiEdit(Admin $admin , Request $request){
+      $x = $request->file('foto');
+
+      if($x != null){
+
+        $file = $admin->foto;
+        $hapus = File::delete($file);
+        $ext = $request->file('thumbnail')->extension();
+        $name = Hash::make($x);
+        $namaFile = $name.'.'.$ext;
+
+        $path = $x->storeAs('admin', $namaFile);
+        $admin->nama = $request->nama;
+        $admin->email = 
+        $admin->password =
+        $admin->foto = 'app/'.$path;
+        $admin->save();
+        return redirect('admin/admin')->with('success', 'Data berhasil diupdate');
+      }else{
+        return back()->with('danger', 'Data gagal diupdate');
+      }
+    }
+
     function delete(Admin $admin){
      $delete = $admin->delete();
 
