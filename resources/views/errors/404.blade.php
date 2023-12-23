@@ -1,7 +1,7 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title>Animation SVG</title>
+	<title>404</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
 	<style>
 		    <style>

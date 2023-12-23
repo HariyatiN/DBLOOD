@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::controller(AuthController::class)->group(function(){
             Route::get('/login', 'showLogin')->name('login');
@@ -25,7 +23,9 @@ Route::controller(AuthController::class)->group(function(){
 });
 
 Route::group(['middleware' => 'auth:admin'], function () {
-
+    Route::get('/', function () {
+        return view('welcome');
+    });
 Route::prefix('admin')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index');
