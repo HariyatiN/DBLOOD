@@ -53,40 +53,114 @@ class AdminController extends Controller
 
     function edit(Admin $admin){
       $data['list'] = $admin;
-      return view('admin.admin.edit', $data);
+      return view('admin.admins.edit', $data);
   }
 
-    function aksiEdit(Admin $admin , Request $request){
-      $x = $request->file('foto');
+  function aksiedit(Request $request, Admin $admin){
 
-      if($x != null){
+    $validatedData = $request->validate([
+        'password' => ['required', 'string', 'min:8'],
+
+    ]);
+
+    if($request->password != null){
+
+      if($request->foto != null){
+        $x = $request->file('foto');
 
         $file = $admin->foto;
+        // Hapus foto lama
         $hapus = File::delete($file);
-        $ext = $request->file('thumbnail')->extension();
+
+        $ext = $request->file('foto')->extension();
+        $name = Hash::make($x);
+        $namaFile = $name.'.'.$ext;
+
+        $path = $x->storeAs('info', $namaFile);
+
+
+        $admin->nama = $request->nama;
+        $admin->email = $request->email;
+        $admin->password = bcrypt($request->password);
+        $admin->foto ='app/'.$path;
+        $admin->update();
+        return redirect('admin/admin')->with('success', 'Data berhasil diupdate');
+      }else {
+        $x = $request->file('foto');
+
+        $file = $admin->foto;
+        // Hapus foto lama
+        $hapus = File::delete($file);
+
+        $ext = $request->file('foto')->extension();
         $name = Hash::make($x);
         $namaFile = $name.'.'.$ext;
 
         $path = $x->storeAs('admin', $namaFile);
+
         $admin->nama = $request->nama;
-        $admin->email = 
-        $admin->password =
-        $admin->foto = 'app/'.$path;
-        $admin->save();
+        $admin->email = $request->email;
+        $admin->password = bcrypt($request->password);
+        $admin->foto ='app/'.$path;
+        $admin->update();
+        return redirect('admin/admin')->with('warning', 'Data berhasil diupdate');
+    }
+
+    }else{
+
+      if($request->foto != null){
+
+        $x = $request->file('foto');
+
+        $file = $admin->foto;
+        // Hapus foto lama
+        $hapus = File::delete($file);
+
+        $ext = $request->file('foto')->extension();
+        $name = Hash::make($x);
+        $namaFile = $name.'.'.$ext;
+
+        $path = $x->storeAs('admin', $namaFile);
+
+        $admin->nama = $request->nama;
+        $admin->email = $request->email;
+        $admin->password = bcrypt($request->password);
+        $admin->foto ='app/'.$path;
+        $admin->update();
+
+
+
+        return redirect('admin/admin')->with('warning', 'Data berhasil diupdate');
+      }else {
+        $admin->nama = $request->nama;
+        $admin->email = $request->email;
+        $admin->password = bcrypt($request->password);
+
+
+        $admin->update();
+
+
         return redirect('admin/admin')->with('success', 'Data berhasil diupdate');
-      }else{
-        return back()->with('danger', 'Data gagal diupdate');
       }
     }
 
+
+  }
+
+
+  function detail(Admin $admin){
+
+    $data['admin'] = $admin;
+
+    return view('admin.admins.detail', $data);
+
+  }
+
     function delete(Admin $admin){
-     $delete = $admin->delete();
 
-     if($delete){
+   $admin->delete();
 
-       return redirect('admin/admins');
-     }else{
-      return ('delete data gagal');
-     }
+       return redirect('admin/admin')->with('danger', 'Data Berhasil Dihapus');
+
   }
 }

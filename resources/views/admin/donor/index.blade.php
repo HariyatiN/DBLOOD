@@ -36,7 +36,7 @@
                       <tbody>
                         @foreach ($list as $x)
                             <tr>
-                               
+
                                 <td>
                                     <center>{{ $loop->iteration }}</center>
                                 </td>
@@ -49,9 +49,11 @@
                                             <a href="{{ url('admin/pendonor/edit', $x->id) }}" class="btn btn-primary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a href="#" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini ?!');">
+                                            {{-- <a href="#" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini ?!');">
                                                 <i class="fa fa-trash"></i>
-                                            </a>
+                                            </a> --}}
+
+                                            <x-button.delete id="{{ $x->id  }}"  />
                                         </div>
                                     </center>
                                 </td>
@@ -64,6 +66,8 @@
                                 </td>
 
                             </tr>
+
+                            <x-utils.modal-delete action=" {{ url('admin/info', $x->id) }}" />
                      @endforeach
 
                       </tbody>

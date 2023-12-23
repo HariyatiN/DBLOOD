@@ -32,8 +32,8 @@ class Admin extends Model implements Authenticatable
     static $inputan = [
         'nama' => 'required',
         'email' => 'required',
-        'password' => 'required',
-        'foto' => 'required',
+        'password' => ['required', 'string', 'min:8'],
+        'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust mime types and max size as needed
     ];
 
 

@@ -7,7 +7,7 @@ use App\Http\Controllers\PendonorController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DonorController;
-
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -38,16 +38,18 @@ Route::prefix('admin')->group(function () {
         Route::post('admins/tambah' , 'aksitambah');
         Route::get('/admins/edit/{admin}', 'edit');
         Route::post('/admins/edit/{admin}', 'aksiedit');
-        Route::delete('admins/delete/{admin}' , 'destroy');
+        Route::post('/admins/detail/{admin}', 'detail');
+        Route::delete('/admins/{admin}' , 'delete');
     });
+
+
     Route::controller(DarahController::class)->group(function () {
         Route::get('/darah', 'index');
         Route::get('/darah/detail/{darah}', 'detail');
-        Route::post('/darah/tambah', 'aksitambah');
         Route::get('/darah/tambah', 'tambah');
         Route::get('/darah/edit/{darah}', 'edit');
-        // Route::post('/darah/edit/{darah}', 'aksiedit');
-        // Route::post('/darah/delete/{darah}', 'delete');
+        Route::post('/darah/edit/{darah}', 'aksiedit');
+
 
 
     });
@@ -59,7 +61,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/pendonor/tambah', 'aksitambah');
         Route::get('/pendonor/edit/{pendonor}', 'edit');
         Route::post('/pendonor/edit/{pendonor}', 'aksiedit');
-        Route::delete('/pendonor/delete/{pendonor}', 'destroy');
+        Route::delete('/pendonor/{pendonor}', 'delete');
 
     });
 
@@ -71,12 +73,17 @@ Route::prefix('admin')->group(function () {
         Route::post('/info', 'aksitambah');
         Route::get('/info/edit/{info}', 'edit');
         Route::post('/info/edit/{info}', 'aksiEdit');
-        Route::delete('/info/delete/{info}', 'destroy');
+        Route::delete('/info/{info}', 'delete');
     });
 
 
     Route::controller(DonorController::class)->group(function (){
         Route::get('/donor', 'index');
+
+
+    });
+    Route::controller(ProdukController::class)->group(function (){
+        Route::post('/darah/tambah', 'aksitambah');
 
 
     });

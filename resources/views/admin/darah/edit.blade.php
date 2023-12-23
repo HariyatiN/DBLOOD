@@ -4,15 +4,21 @@
         <div class="col-md-12 p-5">
             <form action="{{ url('admin/darah/edit', $list->id) }}" enctype="multipart/form-data" method="POST">
                 @csrf
+
                 <div class="card mt-5">
                     <div class="card-header">
                         <h2 class="card-title text-dark">Form Tambah Stok</h2>
                     </div>
                     <div class="card-body">
                         <div class="row">
-                        
-                          
 
+
+
+                            <div class="col-md-6">
+                                <x-input.input title="produk" name="produk" value="{{$list->produk}}"
+                                 type="number"
+                                    placeholder="Masukan jumlah stok ..." />
+                            </div>
                             <div class="col-md-6">
                                 <x-input.input title="A+" name="A+" value="{{$list->A}}"
                                  type="number"
@@ -20,12 +26,12 @@
                             </div>
                             <div class="col-md-6">
                                 <x-input.input title="B+" name="B+" value="{{$list->B}}"
-                                type="number" 
+                                type="number"
                                     placeholder="Masukan jumlah stok ..." />
                             </div>
                             <div class="col-md-6">
                                 <x-input.input title="O+" name="O+" value="{{$list->O}}"
-                                type="number" 
+                                type="number"
                                     placeholder="Masukan jumlah stok ..." />
                             </div>
                             <div class="col-md-6">
@@ -34,7 +40,7 @@
                                     placeholder="Masukan jumlah stok ..." />
                             </div>
 
-                         
+
                            </div>
 
 
