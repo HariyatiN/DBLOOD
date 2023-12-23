@@ -27,13 +27,31 @@
 </div>
 
 
-
-
+@push('style')
 <style>
-    .modal-content{
-        transition: all 0.3s ease;
-    }
+  #confirmationModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#confirmationModal.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
 </style>
+
+@endpush
+
+
 
 
 
