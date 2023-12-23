@@ -1,12 +1,19 @@
 function hideDeleteConfirmation() {
-    document.getElementById("confirmationModal").style.display = "none";
+    const confirmationModal = document.getElementById("confirmationModal");
+    confirmationModal.classList.remove("show");
+    setTimeout(() => {
+        confirmationModal.style.display = "none";
+    }, 300);
 }
 
 function showDeleteConfirmation(action) {
-    // Set the action dynamically
+
     const deleteForm = document.getElementById('deleteForm');
     deleteForm.setAttribute('action', action);
 
-    // Show the modal
-    document.getElementById("confirmationModal").style.display = "block";
+    setTimeout(() => {
+        const confirmationModal = document.getElementById("confirmationModal");
+        confirmationModal.style.display = "block";
+        confirmationModal.classList.add("show");
+    }, 10);
 }
