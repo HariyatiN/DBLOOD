@@ -10,16 +10,21 @@ class Darah extends Model
     use HasFactory;
 
     protected $table = "darah";
-    
+
 
     public function donor(){
         return  $this->hasMany(Donor::class, 'darah_id', 'id');
     }
-    
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class, 'produk_id', 'id');
+    }
+
     protected $fillable = [
         'jenis_gol',
         'stok_darah',
-       
+
     ];
 
     static $inputan = [

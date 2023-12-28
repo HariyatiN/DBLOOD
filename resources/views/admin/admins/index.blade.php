@@ -9,7 +9,7 @@
                     </a>
                 </div>
                 <div class="card-body">
-                   
+
                         <table class="table table-striped table-responsive" id="table">
                             <thead >
                                 <tr>
@@ -35,21 +35,26 @@
                             <tbody>
                      @foreach ($list as $x)
                                 <tr>
-                                   
+
                                     <td>
                                         <center>{{ $loop->iteration }}</center>
                                     </td>
                                     <td>
                                         <center>
                                             <div class="btn-group">
-                                                <a href="#" class="btn btn-warning">
+                                                <a href="{{ url('admin/admins/detail', $x->id) }}" class="btn btn-warning">
                                                     <i class="far fa-eye"></i>
                                                 </a>
-                                                <a href="{{ url('admin/admin/edit', $x->id) }}" class="btn btn-primary">
+                                                <a href="{{ url('admin/admins/edit', $x->id) }}" class="btn btn-primary">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <x-button.delete id="{{ $x->id }}"   />
-    
+
+
+                                                    <button type="button" class="btn btn-danger" onclick="showDeleteConfirmation('{{ url('admin/admins') }}/{{ $x->id }}')">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+
+
                                             </div>
                                         </center>
                                     </td>
@@ -59,34 +64,42 @@
                                         </center>
                                     </td>
                                     <td>
-    
+
                                         <center>
-                                          
+
                                             <span style="display: inline-block;margin-left: 12px !important">  {{ $x->nama }}</span>
                                         </center>
                                     </td>
                                     <td>
                                         <center>{{ $x->email }}</center>
                                     </td>
-                                    
+
+
                                 </tr>
+                                  <x-utils.modal-delete action=" {{ url('admin/admins') }}/{{ $x->id }}" />
                          @endforeach
                             </tbody>
                         </table>
-                  
+
                 </div>
             </div>
         </div>
        </div>
+
        @push('style')
        <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     @endpush
-    
+
     @push('script')
+
+
       <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    
+
       <script>
            const table = new DataTable('#table')
       </script>
     @endpush
+
+
+
 </x-app>

@@ -5,6 +5,7 @@
   <a href="#" class="sidebar-toggler flex-shrink-0">
       <i class="fa fa-bars"></i>
   </a>
+
   <div class="navbar-nav align-items-center ms-auto">
 
 

@@ -55,15 +55,12 @@
                                             <a href="{{ url('admin/pendonor/edit', $x->id) }}" class="btn btn-primary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <form action="{{ url('admin/pendonor/delete', $x->id) }}" method="POST" style="display: inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?!');">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </form>
 
-                                            {{-- <x-button.delete id="{{ $pendonor->id }}"  /> --}}
+
+                                            <button type="button" class="btn btn-danger" onclick="showDeleteConfirmation('{{ url('admin/pendonor') }}/{{ $x->id }}')">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+
 
                                         </div>
                                     </center>
@@ -90,6 +87,8 @@
                                     <center>{{ $x->alamat }}</center>
                                 </td>
                             </tr>
+
+                            <x-utils.modal-delete action=" {{ url('admin/pendonor', $x->id) }}" />
                      @endforeach
                         </tbody>
                     </table>

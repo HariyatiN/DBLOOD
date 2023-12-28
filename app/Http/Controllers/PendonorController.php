@@ -75,7 +75,7 @@ class PendonorController extends Controller
 
         $file = $pendonor->foto;
         // Hapus foto lama
-        $hapus = File::delete($file);
+        File::delete($file);
 
         $ext = $request->file('foto')->extension();
         $name = Hash::make($x);
@@ -89,7 +89,7 @@ class PendonorController extends Controller
         $pendonor->tlp = $request->tlp;
         $pendonor->alamat = $request->alamat;
         $pendonor->gol_darah = $request->gol_darah;
-   
+
         $pendonor->password = bcrypt($request->password);
         $pendonor->foto = 'app/'.$path;
 
@@ -133,6 +133,7 @@ class PendonorController extends Controller
         $pendonor->alamat = $request->alamat;
         $pendonor->gol_darah = $request->gol_darah;
         $pendonor->kode_p = $request->kode_p;
+        $pendonor->password = bcrypt($request->password);
         $pendonor->foto = 'app/'.$path;
 
         $pendonor->update();
@@ -145,10 +146,11 @@ class PendonorController extends Controller
         $pendonor->alamat = $request->alamat;
         $pendonor->gol_darah = $request->gol_darah;
         $pendonor->kode_p = $request->kode_p;
+        $pendonor->password = bcrypt($request->password);
 
         $pendonor->update();
 
-        
+
         return redirect('admin/pendonor')->with('success', 'Data berhasil diupdate');
       }
     }
@@ -156,10 +158,10 @@ class PendonorController extends Controller
 
   }
 
-  function destroy(Pendonor $pendonor){
+  function delete(Pendonor $pendonor){
   $pendonor->delete();
 
-  return redirect('admin/pendonor');
+  return redirect('admin/pendonor')->with('danger', 'Data berhasil dihapus');
 
   }
 
