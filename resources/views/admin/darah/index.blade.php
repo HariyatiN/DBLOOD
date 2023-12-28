@@ -5,7 +5,7 @@
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h2 class="card-title text-dark">Stok Darah</h2>
                     <a href="{{ url('admin/darah/tambah') }}" class="btn btn-success">
-                        Tambah Produk 
+                        Tambah Produk
                     </a>
                 </div>
                 <div class="card-body">
@@ -15,7 +15,7 @@
                                 <tr>
                                     <th>
                                         <center>
-                                            No. 
+                                            No.
                                         </center>
                                     </th>
                                     <th>
@@ -38,58 +38,58 @@
                                     <th>
                                         <center>AB+</center>
                                     </th>
-                       
+
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($list as $x)
                                 <tr>
-                                   
+
                                     <td>
                                         <center>{{ $loop->iteration }}</center>
                                     </td>
                                      <td>
                                         <center>
                                             <div class="btn-group">
-                                                
-                                                <a href="{{ url('admin/darah/edit', $x->id) }}" class="btn btn-primary"> 
-                                                    <i class="fa fa-plus"> Tambah Stok</i>
+
+                                                <a href="{{ url('admin/darah/edit', $x->id) }}" class="btn btn-secondary">
+                                                    Ubah Stok
                                                 </a>
-                                         
+
                                             </div>
                                         </center>
                                     </td>
                                     <td>
                                         <center>
-                                         
-                                            <span style="display: inline-block;margin-left: 12px !important">  {{ $x->produk }}</span>
+
+                                            <span style="display: inline-block;margin-left: 12px !important"> {{ $x->produk->produk}}</span>
                                         </center>
                                     </td>
                                     <td>
                                         <center>
                                             <span style="display: inline-block;margin-left: 12px !important">  {{ $x->A }}</span>
                                         </center>
-                                       
+
                                     </td>
                                     <td>
                                         <center>
                                             <span style="display: inline-block;margin-left: 12px !important">  {{ $x->B }}</span>
                                         </center>
-                                       
+
                                     </td>
                                     <td>
                                         <center>
                                             <span style="display: inline-block;margin-left: 12px !important">  {{ $x->O }}</span>
                                         </center>
-                                       
+
                                     </td>
                                     <td>
                                         <center>
                                             <span style="display: inline-block;margin-left: 12px !important">  {{ $x->AB }}</span>
                                         </center>
-                                       
+
                                     </td>
-                             
+
                                 </tr>
                                 @endforeach
                             </tbody>

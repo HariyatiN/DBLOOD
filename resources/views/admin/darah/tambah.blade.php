@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                        
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Produk</label>
@@ -21,30 +21,12 @@
                                         <option value="PRC">PRC</option>
                                     </select>
                                     @error('produk')
-                                    <span class="float-right text-danger">{{ $message }}</span> 
+                                    <span class="float-right text-danger">{{ $message }}</span>
                                 @enderror
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <x-input.input title="A+" name="A+" type="number"
-                                    placeholder="Masukan jumlah stok ..." />
-                            </div>
-                            <div class="col-md-6">
-                                <x-input.input title="B+" name="B+" type="number"
-                                    placeholder="Masukan jumlah stok ..." />
-                            </div>
-                            <div class="col-md-6">
-                                <x-input.input title="O+" name="O+" type="number"
-                                    placeholder="Masukan jumlah stok ..." />
-                            </div>
-                            <div class="col-md-6">
-                                <x-input.input title="AB+" name="AB+" type="number"
-                                    placeholder="Masukan jumlah stok ..." />
-                            </div>
 
-                         
-                           </div>
 
 
 

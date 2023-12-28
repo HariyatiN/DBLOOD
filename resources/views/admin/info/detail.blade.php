@@ -1,5 +1,5 @@
 <x-app>
-  <div class="card">
+  <div class="card m-5">
    <div class="card-header">
        <div class="card-title text-dark">Detail Info</div>
        {{-- <a href="{{ url('admin/produk',$produk->id) }}/edit" class="btn btn-warning float-right">
@@ -13,16 +13,15 @@
                <dl>
                    <dt>Judul</dt>
                    <dd>{{$info->judul}}</dd>
-                   <dt>Thumbnail</dt>
-                   <img src="{{ asset('public/app/info/' . basename($info->thumbnail)) }}" alt="Thumbnail" style="width: 100%">
                    <dt>Deskripsi</dt>
                    <dd>{!! nl2br($info->deskripsi) !!}</dd>
                </dl>
                
            </div>
-           {{-- <div class="col-md-6">
-               <img src="{{$info->foto}}" alt="" style="width:100% ">
-           </div> --}}
+           <div class="col-md-6">
+            <dt>Thumbnail</dt>
+            <img src="{{ url('public') }}/{{ $info->thumbnail }}" alt="" style="width:70%">
+           </div>
        </div>
    </div>
   </div>

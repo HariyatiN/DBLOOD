@@ -34,21 +34,21 @@ class InfoController extends Controller
       $ext = $request->file('thumbnail')->extension();
       $name = Hash::make($x);
       $namaFile = $name.'.'.$ext;
-  
+
       $path = $x->storeAs('info', $namaFile);
-  
-    
+
+
       $i->judul = $request->judul;
       $i->thumbnail ='app/'.$path;
       $i->deskripsi =$request->deskripsi;
-      $i->save(); 
-      
+      $i->save();
+
       return redirect('admin/info')->with('success', 'Data berhasil disimpan');
     }else{
       return back()->with('danger', 'Data gagal disimpan');
     }
 
-   
+
   }
 
   function edit(Info $info){
@@ -60,25 +60,34 @@ function aksiEdit(Info $info , Request $request){
   $x = $request->file('thumbnail');
 
     if($x != null){
-      
+
       $file = $info->foto;
       $hapus = File::delete($file);
       $ext = $request->file('thumbnail')->extension();
       $name = Hash::make($x);
       $namaFile = $name.'.'.$ext;
-  
+
       $path = $x->storeAs('info',$namaFile);
       $info->judul = $request->judul;
       $info->thumbnail = 'app/'.$path;
       $info->deskripsi = $request->deskripsi;
-      $info->save(); 
-      return redirect('admin/info')->with('success', 'Data berhasil diupdate');
+      $info->save();
+      return redirect('admin/info')->with('warning', 'Data berhasil diupdate');
     }else{
       return back()->with('danger', 'Data gagal diupdate');
 
     }
 
-  
+
+
+}
+
+
+public function delete(Info $info){
+
+$info->delete();
+
+return redirect('admin/info')->with('danger', 'Data berhasil dihapus');
 
 }
 
