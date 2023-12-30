@@ -17,7 +17,7 @@
 
                 <div class="ms-3">
 
-                    <p class="mb-2">Total Sale</p>
+                    <p class="mb-2">Total Pendonor</p>
                     <h6 class="mb-0 text-dark">$1234</h6>
                 </div>
             </div>
