@@ -3,7 +3,6 @@
         <div class="card m-5">
          <div class="card-header">
              <div class="card-title text-dark">Detail Admin</div>
-
          </div>
          <div class="card-body">
              <div class="row">
