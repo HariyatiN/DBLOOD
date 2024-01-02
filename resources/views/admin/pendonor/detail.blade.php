@@ -13,6 +13,8 @@
                  <dl>
                      <dt>Nama</dt>
                      <dd>{{$pendonor->nama}}</dd>
+                     <dt>Kode Pendonor</dt>
+                     <dd>{{$pendonor->kode_p}}</dd>
                      <dt>Jenis Kelamin</dt>
                      <dd>{{$pendonor->jk}}</dd>
                      <dt>Telepon</dt>
@@ -21,18 +23,13 @@
                      <dd>{{$pendonor->alamat}}</dd>
                      <dt>Golongan Darah</dt>
                      <dd>{{$pendonor->gol_darah}}</dd>
-                     <dt>Email</dt>
-                     <dd>{{$pendonor->email}}</dd>
-                     <dt>Password</dt>
-                     <dd>{{$pendonor->password}}</dd>
-                     <dt>Foto</dt>
-                     <dt>Level</dt>
-                     <dd>{{$pendonor->level}}</dd>
+        
                  </dl>
                  
              </div>
              <div class="col-md-6">
-                <img src="{{ asset('public/app/pendonor/' . basename($pendonor->foto)) }}" alt="Foto" style="width: 70%">
+                 <dt>Foto</dt>
+                <img src="{{ asset('public/app/pendonor/' . basename($pendonor->foto)) }}" alt="Foto" style="width: 60%">
              </div> 
          </div>
      </div>

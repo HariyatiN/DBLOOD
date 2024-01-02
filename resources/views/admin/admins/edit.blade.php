@@ -31,7 +31,7 @@
                             </div>
                             <div class="col-md-12 mt-3">
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <a href="{{ url('admin/admins') }}" class="btn btn-warning">BATAL</a>
+                                    <a href="{{ url('admin/admin') }}" class="btn btn-warning">BATAL</a>
                                     <button type="submit" class="btn btn-primary mx-2">SIMPAN</button>
                                 </div>
                             </div>

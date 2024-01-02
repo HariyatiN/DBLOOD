@@ -36,8 +36,6 @@
                               </div>
 
 
-
-
                             <div class="col-md-12">
                                 <div class="d-flex align-items-center justify-content-center">
                                     <a href="{{ url('admin/info') }}" class="btn btn-warning">BATAL</a>
