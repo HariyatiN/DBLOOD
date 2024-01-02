@@ -46,5 +46,3 @@ function aksiEdit(Darah $darah , Request $request){
   return redirect('admin/darah')->with('success', 'Stok Darah Berhasil ditambah');
     }
 }
-
-

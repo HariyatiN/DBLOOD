@@ -23,7 +23,7 @@ Route::controller(AuthController::class)->group(function(){
 });
 
 Route::group(['middleware' => 'auth:admin'], function () {
-    Route::get('/', function () {
+    Route::get('/admin/dashboard', function () {
         return view('welcome');
     });
 Route::prefix('admin')->group(function () {

@@ -13,12 +13,6 @@
                         <div class="row">
 
 
-
-                            <div class="col-md-6">
-                                <x-input.input title="produk" name="produk" value="{{$list->produk}}"
-                                 type="number"
-                                    placeholder="Masukan jumlah stok ..." />
-                            </div>
                             <div class="col-md-6">
                                 <x-input.input title="A+" name="A+" value="{{$list->A}}"
                                  type="number"
