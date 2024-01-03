@@ -4,9 +4,9 @@
             <div class="card mt-5">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h2 class="card-title text-dark">Stok Darah</h2>
-                    <a href="{{ url('admin/darah/tambah') }}" class="btn btn-success">
+                    {{-- <a href="{{ url('admin/darah/tambah') }}" class="btn btn-success">
                         Tambah Produk
-                    </a>
+                    </a> --}}
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
